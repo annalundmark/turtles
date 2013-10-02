@@ -11,11 +11,7 @@ red_turtle.shape('turtle')
 blue_turtle.shape('turtle')
 
 finish_line = turtle.Turtle()
-
-blue_turtle.up()
-red_turtle.up()
-blue_turtle.goto(-100,20)
-red_turtle.goto(-100,-20)
+start_line = turtle.Turtle()
 
 finish_line.hideturtle()
 finish_line.up()
@@ -25,6 +21,31 @@ finish_line.left(90)
 finish_line.forward(200)
 finish_line.up()
 
+start_line.hideturtle()
+start_line.up()
+start_line.goto(-100, -100)
+start_line.pendown()
+start_line.left(90)
+start_line.forward(200)
+start_line.up()
+
+blue_turtle.up()
+red_turtle.up()
+blue_turtle.goto(-100,20)
+red_turtle.goto(-100,-20)
+
+turtle_text = turtle.Turtle()
+turtle_text.hideturtle()
+turtle_text.write("3", font=("Arial", 30, "normal"))
+import time
+time.sleep(1)
+turtle_text.clear()
+turtle_text.write("2", font=("Arial", 30, "normal"))
+time.sleep(1)
+turtle_text.clear()
+turtle_text.write("1", font=("Arial", 30, "normal"))
+time.sleep(1)
+turtle_text.clear()
 
 def set_angle_speed(): 
 	turtle_angle = random.randrange(0,180)
@@ -43,9 +64,9 @@ while red_turtle.position()[0] < 150 and blue_turtle.position()[0] < 150:
 
 
 if red_turtle.position()[0] > blue_turtle.position()[0]: 
-	print "Red won!" 
+	turtle_text.write("Red won!", font=("Arial", 30, "normal"))
 else: 
-	print "Blue won!"
+	turtle_text.write("Blue won!", font=("Arial", 30, "normal"))
 
 
 wn.exitonclick()
