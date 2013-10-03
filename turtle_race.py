@@ -1,5 +1,6 @@
 import turtle
 import random
+import time
 wn = turtle.Screen()
 wn.bgcolor('lightgreen')
 
@@ -38,7 +39,6 @@ turtle_text = turtle.Turtle()
 turtle_text.hideturtle()
 for sec in range(3, 0, -1):
 	turtle_text.write(sec, font=("Arial", 30, "normal"))
-	import time
 	time.sleep(1)
 	turtle_text.clear()
 
