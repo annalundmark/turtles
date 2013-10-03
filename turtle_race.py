@@ -36,16 +36,12 @@ red_turtle.goto(-100,-20)
 
 turtle_text = turtle.Turtle()
 turtle_text.hideturtle()
-turtle_text.write("3", font=("Arial", 30, "normal"))
-import time
-time.sleep(1)
-turtle_text.clear()
-turtle_text.write("2", font=("Arial", 30, "normal"))
-time.sleep(1)
-turtle_text.clear()
-turtle_text.write("1", font=("Arial", 30, "normal"))
-time.sleep(1)
-turtle_text.clear()
+for sec in range(3, 0, -1):
+	turtle_text.write(sec, font=("Arial", 30, "normal"))
+	import time
+	time.sleep(1)
+	turtle_text.clear()
+
 
 def set_angle_speed(): 
 	turtle_angle = random.randrange(0,180)
