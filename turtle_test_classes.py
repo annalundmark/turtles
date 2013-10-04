@@ -1,6 +1,7 @@
 import turtle
 import random
-import time 
+import time
+winners = open('winners.list','a')
 
 wn = turtle.Screen()
 wn.bgcolor('lightgreen')
@@ -49,15 +50,13 @@ def set_angle_speed():
 	turtle_angle = random.randrange(0,180)
 	if turtle_angle > 90: 
 		turtle_angle += 180
-	turtle_speed = random.randrange(1,100)
+	turtle_speed = random.randrange(1,10)
 	return turtle_angle, turtle_speed
 
 turtle_text = turtle.Turtle()
 turtle_text.hideturtle()
-for sec in range(3, 0, -1):
-	turtle_text.write(sec, font=("Arial", 30, "normal"))
-	time.sleep(1)
-	turtle_text.clear()
+turtle_text.write('ready ...', font=("Arial", 30, "normal"))
+
 	
 for i in range(0, turtle_numbers, 1):
 	new_turtle = RacingTurtle()
@@ -68,15 +67,26 @@ for i in range(0, turtle_numbers, 1):
 	new_turtle.goto(-100, y_pos)
 	y_pos += 20
 
+turtle_text.hideturtle()
+turtle_text.clear()
+secs = range(3, 0, -1)
+secs.append('go!!')
+for sec in secs:
+	turtle_text.write(sec, font=("Arial", 30, "normal"))
+	time.sleep(1)
+	turtle_text.clear()
+
 leader_pos = 0
 
 while leader_pos < 150: 
 
 	for i in range(0, turtle_numbers, 1):
 		angle, speed = set_angle_speed()
+		turtles[i].speed(30000)
 		turtles[i].setheading(angle)
 	for i in range(0, turtle_numbers, 1):
 		angle, speed = set_angle_speed()
+		turtles[i].speed(300000)
 		turtles[i].forward(speed)
 	for i in range(0, turtle_numbers, 1):
 		if turtles[i].position()[0] > leader_pos:
@@ -84,6 +94,8 @@ while leader_pos < 150:
 			leader = turtles[i]
 
 turtle_text.write(leader.name + " won!", font=("Arial", 30, "normal"))
+winners.write(leader.name+'\n')
+winners.close()
 
 print leader.name, " won!" 
 
