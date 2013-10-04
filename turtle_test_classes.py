@@ -4,6 +4,8 @@ import random
 wn = turtle.Screen()
 wn.bgcolor('lightgreen')
 
+turtle_numbers = input("How many turtles?")
+
 class RacingTurtle(turtle.Turtle):
 	def __init__(self):
 		print "racing turtle created"
@@ -11,11 +13,21 @@ class RacingTurtle(turtle.Turtle):
 		#self.color(color)
 	def jump(self, distance):
 		self.forward(distance)
-	
-		
 
-green_turtle = RacingTurtle()
-green_turtle.jump(100)
+turtles = []
+
+colors = ["red", "blue", "green"]
+	
+for i in range(0, turtle_numbers, 1):
+	new_turtle = RacingTurtle()
+	new_turtle.color(colors[i])
+	turtles.append(new_turtle)
+
+for i in range(0, turtle_numbers, 1):
+	turtles[i].jump(100)
+#green_turtle = RacingTurtle()
+#green_turtle.color("green")
+#green_turtle.jump(100)
 
 
 #red_turtle = turtle.Turtle()
