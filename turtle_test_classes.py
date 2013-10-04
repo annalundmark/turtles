@@ -16,12 +16,16 @@ class RacingTurtle(turtle.Turtle):
 
 turtles = []
 
+y_pos = 0
+
 colors = ["red", "blue", "green"]
 	
 for i in range(0, turtle_numbers, 1):
 	new_turtle = RacingTurtle()
 	new_turtle.color(colors[i])
 	turtles.append(new_turtle)
+	new_turtle.goto(-100, y_pos)
+	y_pos += 20
 
 for i in range(0, turtle_numbers, 1):
 	turtles[i].jump(100)
