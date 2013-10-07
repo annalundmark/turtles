@@ -88,11 +88,11 @@ def main(debug):
 	
 		for i in range(0, turtle_numbers, 1):
 			angle, speed = set_angle_speed()
-			turtles[i].speed(30000)
+			turtles[i].speed(10)
 			turtles[i].setheading(angle)
 		for i in range(0, turtle_numbers, 1):
 			angle, speed = set_angle_speed()
-			turtles[i].speed(300000)
+			turtles[i].speed(10)
 			turtles[i].forward(speed)
 		for i in range(0, turtle_numbers, 1):
 			if turtles[i].position()[0] > leader_pos:
