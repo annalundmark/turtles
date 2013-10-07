@@ -11,27 +11,14 @@ class RacingTurtle(turtle.Turtle):
 		
 	def set_name(self, name):
 		self.name = name
-		
-	def set_angle(self):
-		turtle_angle = random.randrange(0,180)
-		if turtle_angle > 90:
-			turtle_angle += 180
-		return turtle_angle
-		
-	def set_speed(self):
-		#if debug: 
-		#	turtle_speed = random.randrange(1,100)
-		#else:
-		#	turtle_speed = random.randrange(1,10)
-		turtle_speed = random.randrange(1,100)
-		return turtle_speed
 	
 	def move(self):
 		turtle_angle = random.randrange(0,180)
 		if turtle_angle > 90:
 			turtle_angle += 180
 		turtle_speed = random.randrange(1,100)
-		
+		self.setheading(turtle_angle)
+		self.forward(turtle_speed)
 
 def racing_track():
 	
@@ -102,8 +89,7 @@ def main(debug):
 	while leader_pos < 150: 
 	
 		i = random.randrange(0, turtle_numbers)
-		turtles[i].setheading(turtles[i].set_angle())
-		turtles[i].forward(turtles[i].set_speed())
+		turtles[i].move()
 		if turtles[i].position()[0] > leader_pos:
 			leader_pos = turtles[i].position()[0]
 			leader = turtles[i]
